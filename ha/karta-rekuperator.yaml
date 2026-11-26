@@ -83,7 +83,7 @@ elements:
   - type: state-label
     entity: sensor.rekuperator_wentylator_nawiewu
     style:
-      left: 68.0%
+      left: 71.5%
       top: 75.3%
       color: "#374151"
       font-size: "13px"
