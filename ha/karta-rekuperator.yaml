@@ -83,7 +83,7 @@ elements:
   - type: state-label
     entity: sensor.rekuperator_wentylator_nawiewu
     style:
-      left: 71.5%
+      left: 68.0%
       top: 75.3%
       color: "#374151"
       font-size: "13px"
@@ -106,16 +106,6 @@ elements:
       color: "#111827"
       font-size: "17px"
       font-weight: "700"
-  - type: state-label
-    entity: select.rekuperator_gwc
-    tap_action:
-      action: more-info
-    style:
-      left: 6.8%
-      top: 30.3%
-      color: "#374151"
-      font-size: "12px"
-      font-weight: "600"
   - type: state-label
     entity: sensor.rekuperator_dni_do_wymiany_filtrow
     style:

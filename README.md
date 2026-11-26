@@ -42,4 +42,4 @@ Konfiguracja: [`esphome/rekuperator.yaml`](esphome/rekuperator.yaml) · Schemat:
 2. Na dashboardzie wybierz Dodaj kartę → Ręcznie i wklej [`ha/karta-rekuperator.yaml`](ha/karta-rekuperator.yaml).
 3. Porównaj ID encji z listą w Ustawienia → Urządzenia → Rekuperator.
 
-Kliknięcie trybu lub GWC otwiera okno zmiany. Kliknięcie ikony w dolnym pasku przełącza tryb specjalny. Otwarty bypass jest podświetlony na niebiesko, zamknięty jest szary, a przepustnica jest ustawiona w poprzek kanału ([podgląd](docs/podglad-karty-bypass-zamkniety.png)). Czerwone komunikaty (awaria, filtry, oszronienie) pojawiają się tylko wtedy, gdy alarm jest aktywny.
+Kliknięcie trybu otwiera okno zmiany. Kliknięcie ikony w dolnym pasku przełącza tryb specjalny. Otwarty bypass jest podświetlony na niebiesko, zamknięty jest szary, a przepustnica jest ustawiona w poprzek kanału ([podgląd](docs/podglad-karty-bypass-zamkniety.png)). Czerwone komunikaty (awaria, filtry, oszronienie) pojawiają się tylko wtedy, gdy alarm jest aktywny.

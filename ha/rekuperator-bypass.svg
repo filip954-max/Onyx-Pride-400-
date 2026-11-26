@@ -6,12 +6,11 @@
 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBFCFD"/><stop offset="1" stop-color="#EEF2F6"/></linearGradient>
 </defs>
 <style>.lb{font-size:14px;font-weight:700;letter-spacing:1.5px;fill:#4A5563}.sm{font-size:12px;fill:#6B7685}.cap{font-size:12px;fill:#5A6472;text-anchor:middle}.side{font-size:12px;font-weight:600;letter-spacing:2px;fill:#9AA5B1;text-anchor:middle}</style>
-<path d="M355 153 L355 125 L720 125 L720 330 L660 330 L660 393" fill="none" stroke="#E9EDF2" stroke-width="26" stroke-linejoin="round"/>
 <rect x="338" y="135" width="34" height="10" fill="#E9EDF2"/>
-<path d="M355 153 L355 125 L720 125 L720 330 L660 330 L660 393" fill="none" stroke="#2F7FD8" stroke-width="16" stroke-linejoin="round" opacity=".9"/>
-<path d="M355 153 L355 125 L720 125 L720 330 L660 330 L660 393" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="10 14" stroke-linejoin="round"/>
-<line x1="500" y1="125" x2="540" y2="125" stroke="#fff" stroke-width="3" marker-end="url(#ar)"/>
-<line x1="720" y1="200" x2="720" y2="240" stroke="#fff" stroke-width="3" marker-end="url(#ar)"/>
+<path d="M355 153 L355 125 L720 125 L720 143 A27 27 0 0 0 720 197 L720.0 239.5 L605.1 363.9" fill="none" stroke="#2F7FD8" stroke-width="16" stroke-linejoin="round"/>
+<path d="M355 153 L355 125 L720 125 L720 143 A27 27 0 0 0 720 197 L720.0 239.5 L605.1 363.9" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="10 14" stroke-linejoin="round"/>
+<line x1="500.0" y1="125.0" x2="540.0" y2="125.0" stroke="#fff" stroke-width="3" marker-end="url(#ar)"/>
+<line x1="670.7" y1="292.9" x2="654.4" y2="310.5" stroke="#fff" stroke-width="3" marker-end="url(#ar)"/>
 <line x1="355" y1="129" x2="355" y2="151" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
 <circle cx="355" cy="140" r="3.5" fill="#fff" stroke="#1F2937" stroke-width="1.5"/>
 </svg>
