@@ -1,0 +1,248 @@
+# ESPHome – Frapol OnyX Pride 400 (sterownik Frapol SMART = Plum ecoVENT)
+# Połączenie: ESP32-S3 + moduł RS485-TTL (z automatycznym kierunkiem, np. MAX13487/XY-017)
+#   moduł A/D+  -> COM3 ISO "D+"   |   moduł B/D-  -> COM3 ISO "D-"   |   GND -> SGND
+# W sterowniku: Menu instalatora -> Ustawienia Modbus:
+#   Aktywowanie Modbus = Tak, Edycja parametrów = Tak, Sterowanie rekuperatorem = Tak
+#   Adres = 1, 9600 bps, 1 bit stopu, parzystość: brak (albo dopasuj poniżej)
+#
+# UWAGA: adresy rejestrów pochodzą z tabeli Modbus Plum ecoVENT MIDI (S003.08+).
+# Firmware Frapola może się różnić – najpierw sprawdź odczyty z panelem, dopiero potem zapisuj.
+
+esphome:
+  name: rekuperator
+  friendly_name: Rekuperator
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+api:
+ota:
+  - platform: esphome
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+uart:
+  id: uart_rs485
+  tx_pin: GPIO17
+  rx_pin: GPIO18
+  baud_rate: 9600
+  parity: NONE
+  stop_bits: 1
+
+# DS18B20: VDD -> 3V3, GND -> GND, DQ -> GPIO4 + rezystor 4,7 kΩ między DQ a 3V3
+one_wire:
+  - platform: gpio
+    pin: GPIO4
+
+modbus:
+  id: mb
+  uart_id: uart_rs485
+  # flow_control_pin: GPIO5   # tylko dla modułu MAX485 z pinami DE/RE
+
+modbus_controller:
+  - id: onyx
+    modbus_id: mb
+    address: 1
+    update_interval: 15s
+
+# ---------------- STEROWANIE ----------------
+select:
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Tryb pracy"
+    address: 4            # WORK_MODE
+    value_type: U_WORD
+    optionsmap:
+      "Wyłączony": 0
+      "Postój": 1
+      "Tryb 1": 3
+      "Tryb 2": 4
+      "Tryb 3": 5
+      "Tryb 4": 6
+
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "GWC"
+    address: 69           # GWC_Enable
+    value_type: U_WORD
+    optionsmap:
+      "Zamknięty": 0
+      "Auto": 1
+      "Otwarty": 2
+
+switch:
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Wietrzenie"
+    register_type: holding
+    address: 32           # Mode_WINDOW
+    bitmask: 1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Nieobecność"
+    register_type: holding
+    address: 33           # Mode_OUT
+    bitmask: 1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Party"
+    register_type: holding
+    address: 34           # Mode_PARTY
+    bitmask: 1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Kominek (nadciśnienie)"
+    register_type: holding
+    address: 35           # Mode_OVERPRES
+    bitmask: 1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Harmonogram"
+    register_type: holding
+    address: 37           # SCHEDULER
+    bitmask: 1
+
+# ---------------- ODCZYTY ----------------
+sensor:
+  - platform: dallas_temp
+    name: "Temperatura DS18B20"
+    update_interval: 30s
+    # address: 0x...   # wpisz po pierwszym uruchomieniu, gdy dodasz więcej czujników
+
+  # Temperatury – skalę (x0.1 lub x1) zweryfikuj z panelem; 999 = awaria czujnika
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    id: onyx_t_sup
+    name: "Temperatura nawiewu"
+    address: 6
+    register_type: holding
+    value_type: S_WORD
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    id: onyx_t_exh
+    name: "Temperatura wywiewu"
+    address: 7
+    register_type: holding
+    value_type: S_WORD
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    id: onyx_t_ext
+    name: "Temperatura czerpni (zewn.)"
+    address: 8
+    register_type: holding
+    value_type: S_WORD
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Temperatura wyrzutni"
+    address: 9
+    register_type: holding
+    value_type: S_WORD
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Wentylator nawiewu"
+    address: 43
+    register_type: holding
+    value_type: U_WORD
+    unit_of_measurement: "%"
+    state_class: measurement
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Wentylator wywiewu"
+    address: 44
+    register_type: holding
+    value_type: U_WORD
+    unit_of_measurement: "%"
+    state_class: measurement
+
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Przepływ nawiewu"
+    address: 92
+    register_type: holding
+    value_type: U_WORD
+    unit_of_measurement: "m³/h"
+    state_class: measurement
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Przepływ wywiewu"
+    address: 93
+    register_type: holding
+    value_type: U_WORD
+    unit_of_measurement: "m³/h"
+    state_class: measurement
+
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Dni do wymiany filtrów"
+    address: 67
+    register_type: holding
+    value_type: U_WORD
+    unit_of_measurement: "d"
+
+  # Sprawność odzysku: (nawiew - zewn.) / (wywiew - zewn.)
+  - platform: template
+    name: "Sprawność odzysku"
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
+    update_interval: 60s
+    lambda: |-
+      float sup = id(onyx_t_sup).state, exh = id(onyx_t_exh).state, ext = id(onyx_t_ext).state;
+      if (isnan(sup) || isnan(exh) || isnan(ext) || fabs(exh - ext) < 3.0) return NAN;
+      return (sup - ext) / (exh - ext) * 100.0;
+
+binary_sensor:
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Awaria"
+    register_type: holding
+    address: 3
+    device_class: problem
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Wymiana filtra"
+    register_type: holding
+    address: 202
+    device_class: problem
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Oszronienie wymiennika"
+    register_type: holding
+    address: 214
+    device_class: problem
+  - platform: modbus_controller
+    modbus_controller_id: onyx
+    name: "Bypass otwarty"
+    register_type: holding
+    address: 17           # 0 = przepustnica ON -> sprawdź logikę na żywo
+    filters:
+      - invert:
