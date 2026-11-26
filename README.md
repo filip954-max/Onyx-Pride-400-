@@ -20,6 +20,8 @@ Sterowanie trybami i odczyt parametrów rekuperatora Frapol OnyX Pride 400
 | MAX3485 A / B / GND | COM3 ISO D+ / D− / SGND |
 | ESP 3V3 / GPIO4 / GND | DS18B20 VDD / DQ / GND (4,7 kΩ DQ↔VDD) |
 
+![Schemat połączeń](docs/schemat.svg)
+
 Panel Basic zostaje na zacisku PANEL bez zmian. Brak komunikacji → zamień TXD/RXD, potem A/B.
 
 ## Konfiguracja sterownika
