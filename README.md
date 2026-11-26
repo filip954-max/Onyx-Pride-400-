@@ -34,3 +34,12 @@ Sterowanie rekuperatorem = Tak, adres 1, 19200 bps, parzystość brak, 2 bity st
 - Nie zmieniaj trybów zbyt często z automatyzacji (zapis do pamięci sterownika).
 
 Konfiguracja: [`esphome/rekuperator.yaml`](esphome/rekuperator.yaml) · Schemat: [`docs/schemat.svg`](docs/schemat.svg)
+
+## Karta w Home Assistant
+![Podgląd karty](docs/podglad-karty.png)
+
+1. Skopiuj [`ha/rekuperator.svg`](ha/rekuperator.svg) do `/config/www/` w Home Assistant.
+2. Na dashboardzie wybierz Dodaj kartę → Ręcznie i wklej [`ha/karta-rekuperator.yaml`](ha/karta-rekuperator.yaml).
+3. Porównaj ID encji z listą w Ustawienia → Urządzenia → Rekuperator.
+
+Kliknięcie trybu lub GWC otwiera okno zmiany. Kliknięcie ikony w dolnym pasku przełącza tryb specjalny. Czerwone komunikaty (awaria, filtry, oszronienie) pojawiają się tylko wtedy, gdy alarm jest aktywny.

@@ -1,0 +1,225 @@
+# Karta Home Assistant: podgląd pracy rekuperatora
+# 1) Skopiuj ha/rekuperator.svg do /config/www/  (dostępny jako /local/rekuperator.svg)
+# 2) Dashboard -> Edytuj -> Dodaj kartę -> Ręcznie (YAML) -> wklej poniższe
+# 3) Sprawdź ID encji (Ustawienia -> Urządzenia -> Rekuperator) i popraw, jeśli się różnią
+type: picture-elements
+image: /local/rekuperator.svg
+elements:
+  - type: state-label
+    entity: sensor.rekuperator_temperatura_czerpni_zewn
+    style:
+      left: 19.1%
+      top: 28.3%
+      color: "#fff"
+      font-size: "19px"
+      font-weight: "700"
+      text-shadow: "0 1px 2px rgba(0,0,0,.35)"
+  - type: state-label
+    entity: sensor.rekuperator_temperatura_wyrzutni
+    style:
+      left: 19.1%
+      top: 68.3%
+      color: "#fff"
+      font-size: "19px"
+      font-weight: "700"
+      text-shadow: "0 1px 2px rgba(0,0,0,.35)"
+  - type: state-label
+    entity: sensor.rekuperator_temperatura_wywiewu
+    style:
+      left: 85.4%
+      top: 28.3%
+      color: "#fff"
+      font-size: "19px"
+      font-weight: "700"
+      text-shadow: "0 1px 2px rgba(0,0,0,.35)"
+  - type: state-label
+    entity: sensor.rekuperator_temperatura_nawiewu
+    style:
+      left: 85.4%
+      top: 68.3%
+      color: "#fff"
+      font-size: "19px"
+      font-weight: "700"
+      text-shadow: "0 1px 2px rgba(0,0,0,.35)"
+  - type: state-label
+    entity: sensor.rekuperator_przeplyw_wywiewu
+    style:
+      left: 85.4%
+      top: 35.3%
+      color: "#374151"
+      font-size: "13px"
+      font-weight: "600"
+  - type: state-label
+    entity: sensor.rekuperator_przeplyw_nawiewu
+    style:
+      left: 85.4%
+      top: 79.7%
+      color: "#374151"
+      font-size: "13px"
+      font-weight: "600"
+  - type: state-label
+    entity: sensor.rekuperator_wentylator_wywiewu
+    style:
+      left: 32.0%
+      top: 75.3%
+      color: "#374151"
+      font-size: "13px"
+      font-weight: "600"
+  - type: state-label
+    entity: sensor.rekuperator_wentylator_nawiewu
+    style:
+      left: 68.0%
+      top: 75.3%
+      color: "#374151"
+      font-size: "13px"
+      font-weight: "600"
+  - type: state-label
+    entity: sensor.rekuperator_sprawnosc_odzysku
+    style:
+      left: 50.0%
+      top: 48.3%
+      color: "#111827"
+      font-size: "20px"
+      font-weight: "800"
+  - type: state-label
+    entity: select.rekuperator_tryb_pracy
+    tap_action:
+      action: more-info
+    style:
+      left: 84.0%
+      top: 7.5%
+      color: "#111827"
+      font-size: "17px"
+      font-weight: "700"
+  - type: state-label
+    entity: select.rekuperator_gwc
+    tap_action:
+      action: more-info
+    style:
+      left: 6.8%
+      top: 30.3%
+      color: "#374151"
+      font-size: "12px"
+      font-weight: "600"
+  - type: state-label
+    entity: sensor.rekuperator_dni_do_wymiany_filtrow
+    style:
+      left: 68.0%
+      top: 89.5%
+      color: "#111827"
+      font-size: "22px"
+      font-weight: "700"
+  - type: state-label
+    entity: sensor.rekuperator_temperatura_ds18b20
+    style:
+      left: 87.0%
+      top: 89.5%
+      color: "#111827"
+      font-size: "22px"
+      font-weight: "700"
+  - type: state-icon
+    entity: switch.rekuperator_wietrzenie
+    icon: mdi:window-open-variant
+    tap_action:
+      action: toggle
+    style:
+      left: 8.0%
+      top: 89.2%
+      --mdc-icon-size: "34px"
+  - type: state-icon
+    entity: switch.rekuperator_nieobecnosc
+    icon: mdi:home-export-outline
+    tap_action:
+      action: toggle
+    style:
+      left: 18.5%
+      top: 89.2%
+      --mdc-icon-size: "34px"
+  - type: state-icon
+    entity: switch.rekuperator_party
+    icon: mdi:party-popper
+    tap_action:
+      action: toggle
+    style:
+      left: 29.0%
+      top: 89.2%
+      --mdc-icon-size: "34px"
+  - type: state-icon
+    entity: switch.rekuperator_kominek_nadcisnienie
+    icon: mdi:fireplace
+    tap_action:
+      action: toggle
+    style:
+      left: 39.5%
+      top: 89.2%
+      --mdc-icon-size: "34px"
+  - type: state-icon
+    entity: switch.rekuperator_harmonogram
+    icon: mdi:calendar-clock
+    tap_action:
+      action: toggle
+    style:
+      left: 50.0%
+      top: 89.2%
+      --mdc-icon-size: "34px"
+  - type: state-icon
+    entity: binary_sensor.rekuperator_bypass_otwarty
+    icon: mdi:call-split
+    style:
+      left: 50.0%
+      top: 23.2%
+      --mdc-icon-size: "24px"
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.rekuperator_awaria
+        state: "on"
+    elements:
+      - type: state-label
+        entity: binary_sensor.rekuperator_awaria
+        prefix: "⚠ "
+        attribute: friendly_name
+        style:
+          left: 33.0%
+          top: 14.7%
+          color: "#fff"
+          background: "#DC2626"
+          padding: "4px 12px"
+          border-radius: "14px"
+          font-size: "13px"
+          font-weight: "700"
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.rekuperator_wymiana_filtra
+        state: "on"
+    elements:
+      - type: state-label
+        entity: binary_sensor.rekuperator_wymiana_filtra
+        prefix: "⚠ "
+        attribute: friendly_name
+        style:
+          left: 50.0%
+          top: 14.7%
+          color: "#fff"
+          background: "#DC2626"
+          padding: "4px 12px"
+          border-radius: "14px"
+          font-size: "13px"
+          font-weight: "700"
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.rekuperator_oszronienie_wymiennika
+        state: "on"
+    elements:
+      - type: state-label
+        entity: binary_sensor.rekuperator_oszronienie_wymiennika
+        prefix: "⚠ "
+        attribute: friendly_name
+        style:
+          left: 67.0%
+          top: 14.7%
+          color: "#fff"
+          background: "#DC2626"
+          padding: "4px 12px"
+          border-radius: "14px"
+          font-size: "13px"
+          font-weight: "700"
