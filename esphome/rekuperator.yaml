@@ -1,5 +1,5 @@
 # ESPHome – Frapol OnyX Pride 400 (sterownik Frapol SMART = Plum ecoVENT)
-# Połączenie: ESP32-S3 + moduł RS485-TTL (z automatycznym kierunkiem, np. MAX13487/XY-017)
+# Połączenie: ESP32-S3 + moduł MAX3485 TTL↔RS485 (automatyczny kierunek, 3,3 V) – schemat: docs/schemat.svg
 #   moduł A/D+  -> COM3 ISO "D+"   |   moduł B/D-  -> COM3 ISO "D-"   |   GND -> SGND
 # W sterowniku: Menu instalatora -> Ustawienia Modbus:
 #   Aktywowanie Modbus = Tak, Edycja parametrów = Tak, Sterowanie rekuperatorem = Tak
@@ -42,7 +42,7 @@ one_wire:
 modbus:
   id: mb
   uart_id: uart_rs485
-  # flow_control_pin: GPIO5   # tylko dla modułu MAX485 z pinami DE/RE
+  # flow_control_pin: GPIO5   # tylko dla modułu bez auto-kierunku (z pinami DE/RE)
 
 modbus_controller:
   - id: onyx
