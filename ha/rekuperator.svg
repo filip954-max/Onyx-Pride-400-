@@ -62,8 +62,6 @@
 <text x="395" y="570" class="cap">Kominek</text>
 <rect x="450" y="504" width="100" height="78" rx="12" fill="#fff" stroke="#E1E6EC"/>
 <text x="500" y="570" class="cap">Harmonogram</text>
-<rect x="600" y="504" width="160" height="78" rx="12" fill="#fff" stroke="#E1E6EC"/>
-<text x="680" y="570" class="cap">Filtry – zostało</text>
-<rect x="790" y="504" width="160" height="78" rx="12" fill="#fff" stroke="#E1E6EC"/>
-<text x="870" y="570" class="cap">Temp. DS18B20</text>
+<rect x="590" y="504" width="380" height="78" rx="12" fill="#fff" stroke="#E1E6EC"/>
+<text x="780" y="570" class="cap">Filtry – zostało</text>
 </svg>

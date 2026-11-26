@@ -110,7 +110,7 @@ switch:
 # ---------------- ODCZYTY ----------------
 sensor:
   - platform: dallas_temp
-    name: "Temperatura DS18B20"
+    name: "Temperatura w garażu"   # DS18B20 – temperatura otoczenia w garażu
     update_interval: 30s
     # address: 0x...   # wpisz po pierwszym uruchomieniu, gdy dodasz więcej czujników
 

@@ -104,15 +104,7 @@ elements:
   - type: state-label
     entity: sensor.rekuperator_dni_do_wymiany_filtrow
     style:
-      left: 68.0%
-      top: 89.5%
-      color: "#111827"
-      font-size: "22px"
-      font-weight: "700"
-  - type: state-label
-    entity: sensor.rekuperator_temperatura_ds18b20
-    style:
-      left: 87.0%
+      left: 78.0%
       top: 89.5%
       color: "#111827"
       font-size: "22px"
