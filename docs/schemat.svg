@@ -12,7 +12,7 @@
 </style>
 <rect width="1200" height="900" fill="#fff"/>
 <text x="30" y="38" class="t">Schemat połączeń — Frapol OnyX Pride 400 ↔ ESP32-S3 (Modbus RTU, COM3 ISO)</text>
-<text x="30" y="58" class="st">Zgodny z esphome/rekuperator.yaml: UART TX=GPIO17, RX=GPIO18, 9600 8N1, adres 1 · 1-Wire na GPIO4</text>
+<text x="30" y="58" class="st">Zgodny z esphome/rekuperator.yaml: UART TX=GPIO17, RX=GPIO18, 19200 8N2, adres 1 · 1-Wire na GPIO4</text>
 <rect x="15" y="72" width="430" height="190" rx="10" fill="#FFF4F2" stroke="#C0392B" stroke-dasharray="7 5"/>
 <text x="28" y="92" class="z" fill="#C0392B">⚡ STREFA 230 V AC</text>
 <rect x="455" y="72" width="730" height="190" rx="10" fill="#FFFBEF" stroke="#C9A227" stroke-dasharray="7 5"/>
@@ -148,7 +148,7 @@
 <text x="1075.0" y="448" class="h">Frapol SMART</text>
 <text x="1075.0" y="466" class="s">(Plum ecoVENT)</text>
 <text x="1075.0" y="482" class="s">Modbus RTU slave</text>
-<text x="1075.0" y="498" class="s">adres 1 · 9600 8N1</text>
+<text x="1075.0" y="498" class="s">adres 1 · 19200 8N2</text>
 <text x="1075.0" y="514" class="s">soft S003.96+</text>
 <rect x="980" y="388" width="8" height="118" fill="#cfd8dc" stroke="#5F5E5A"/>
 <text x="1000" y="380" class="pn" font-weight="700">COM3 ISO</text>
@@ -194,7 +194,7 @@
 <text x="316" y="840" class="w">1-Wire DQ</text>
 <text x="560" y="765" class="h" style="text-anchor:start">Uwagi</text>
 <text x="560" y="790" class="n">• Brak komunikacji → zamień TXD/RXD, potem A/B (bezpieczne, nic nie uszkodzi).</text>
-<text x="560" y="809" class="n">• Terminator 120 Ω: przy krótkim kablu i 9600 bps zwykle zbędny.</text>
+<text x="560" y="809" class="n">• Terminator 120 Ω: przy krótkim kablu (kilka m) zwykle zbędny.</text>
 <text x="560" y="828" class="n">• Ekran kabla (jeśli jest) łącz tylko z jednej strony, z SGND.</text>
 <text x="560" y="847" class="n">• Przy flashowaniu przez USB odłącz 5 V z przetwornicy albo używaj OTA.</text>
 <text x="560" y="866" class="n">• Prace w strefie 230 V – przy wyłączonym zasilaniu, wykonuje uprawniona osoba.</text>

@@ -3,7 +3,7 @@
 #   moduł A/D+  -> COM3 ISO "D+"   |   moduł B/D-  -> COM3 ISO "D-"   |   GND -> SGND
 # W sterowniku: Menu instalatora -> Ustawienia Modbus:
 #   Aktywowanie Modbus = Tak, Edycja parametrów = Tak, Sterowanie rekuperatorem = Tak
-#   Adres = 1, 9600 bps, 1 bit stopu, parzystość: brak (albo dopasuj poniżej)
+#   Adres = 1, 19200 bps, 2 bity stopu, parzystość: brak (8N2 – musi się zgadzać z poniższym uart)
 #
 # UWAGA: adresy rejestrów pochodzą z tabeli Modbus Plum ecoVENT MIDI (S003.08+).
 # Firmware Frapola może się różnić – najpierw sprawdź odczyty z panelem, dopiero potem zapisuj.
@@ -30,9 +30,9 @@ uart:
   id: uart_rs485
   tx_pin: GPIO17
   rx_pin: GPIO18
-  baud_rate: 9600
+  baud_rate: 19200
   parity: NONE
-  stop_bits: 1
+  stop_bits: 2
 
 # DS18B20: VDD -> 3V3, GND -> GND, DQ -> GPIO4 + rezystor 4,7 kΩ między DQ a 3V3
 one_wire:

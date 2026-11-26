@@ -26,7 +26,7 @@ Panel Basic zostaje na zacisku PANEL bez zmian. Brak komunikacji → zamień TXD
 
 ## Konfiguracja sterownika
 Menu instalatora → Ustawienia Modbus: Aktywowanie = Tak, Edycja parametrów = Tak,
-Sterowanie rekuperatorem = Tak, adres 1, 9600 bps, 8N1. Wymagany soft S003.96+ (sprawdź w Informacje).
+Sterowanie rekuperatorem = Tak, adres 1, 19200 bps, parzystość brak, 2 bity stopu (8N2). Wymagany soft S003.96+ (sprawdź w Informacje).
 
 ## Uwagi
 - Mapa rejestrów pochodzi z tabeli Modbus Plum ecoVENT MIDI (S003.08+) — **zweryfikuj odczyty z panelem przed zapisem**.
