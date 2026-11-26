@@ -33,6 +33,11 @@ Sterowanie rekuperatorem = Tak, adres 1, 19200 bps, parzystość brak, 2 bity st
 - Skala temperatur (×0,1 lub ×1) do potwierdzenia.
 - Nie zmieniaj trybów zbyt często z automatyzacji (zapis do pamięci sterownika).
 
+## Skaner rejestrów
+[`esphome/skaner-rejestrow.yaml`](esphome/skaner-rejestrow.yaml) to tymczasowy firmware, który tylko odczytuje rejestry holding 0–299, niczego nie zapisuje.
+Po starcie wypisuje w logu każdy rejestr (`REG  17 =     1 | s16      1 | 0x0001`), a potem tylko te, które się zmieniły.
+Zmień coś na panelu i sprawdź, który rejestr zareagował. Po zakończeniu wgraj z powrotem `rekuperator.yaml`.
+
 Konfiguracja: [`esphome/rekuperator.yaml`](esphome/rekuperator.yaml) · Schemat: [`docs/schemat.svg`](docs/schemat.svg)
 
 ## Karta w Home Assistant
