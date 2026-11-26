@@ -32,7 +32,7 @@
 <line x1="700" y1="410" x2="740" y2="410" stroke="#fff" stroke-width="3" marker-end="url(#ar)" opacity=".9"/>
 <rect x="323" y="144" width="14" height="52" rx="2" fill="url(#flt)" stroke="#6B7685"/>
 <rect x="663" y="144" width="14" height="52" rx="2" fill="url(#flt)" stroke="#6B7685"/>
-<text x="330" y="138" class="cap" font-size="10">filtr</text><text x="670" y="138" class="cap" font-size="10">filtr</text>
+<text x="330" y="212" class="cap" font-size="10">filtr</text><text x="670" y="212" class="cap" font-size="10">filtr</text>
 <circle cx="320" cy="410" r="27" fill="#fff" stroke="#6B7685" stroke-width="2"/>
 <path d="M320 410 q 6 -18 0 -22 q -12 4 0 22z" fill="#6B7685" transform="rotate(0 320 410)"/>
 <path d="M320 410 q 6 -18 0 -22 q -12 4 0 22z" fill="#6B7685" transform="rotate(120 320 410)"/>
@@ -48,7 +48,12 @@
 <text x="191" y="458" class="lb" text-anchor="middle">WYRZUTNIA</text>
 <text x="854" y="132" class="lb" text-anchor="middle">WYWIEW</text>
 <text x="854" y="456" class="lb" text-anchor="middle">NAWIEW</text>
-<rect x="455" y="122" width="90" height="34" rx="17" fill="#fff" stroke="#D5DCE4"/><text x="500" y="172" class="cap" font-size="10">bypass</text>
+<path d="M375 162 L375 125 L720 125 L720 292 L655 340" fill="none" stroke="#E9EDF2" stroke-width="26" stroke-linejoin="round"/>
+<path d="M375 162 L375 125 L720 125 L720 292 L598 382" fill="none" stroke="#CBD3DC" stroke-width="16" stroke-linejoin="round"/>
+<path d="M375 162 L375 125 L720 125 L720 292 L598 382" fill="none" stroke="#9AA5B1" stroke-width="1.5" stroke-dasharray="5 6" stroke-linejoin="round"/>
+<line x1="363" y1="143" x2="387" y2="143" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
+<circle cx="375" cy="143" r="3.5" fill="#fff" stroke="#1F2937" stroke-width="1.5"/>
+<text x="545" y="158" class="cap" font-size="10" font-weight="700" letter-spacing="1">BYPASS</text>
 <rect x="20" y="146" width="96" height="48" rx="10" fill="#fff" stroke="#AEB8C4" stroke-width="1.5"/><text x="68" y="166" class="cap" font-weight="700">GWC</text>
 <path d="M116 170 L130 170" stroke="#AEB8C4" stroke-width="3"/>
 <line x1="30" y1="492" x2="970" y2="492" stroke="#D5DCE4"/>

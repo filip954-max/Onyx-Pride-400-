@@ -38,8 +38,8 @@ Konfiguracja: [`esphome/rekuperator.yaml`](esphome/rekuperator.yaml) · Schemat:
 ## Karta w Home Assistant
 ![Podgląd karty](docs/podglad-karty.png)
 
-1. Skopiuj [`ha/rekuperator.svg`](ha/rekuperator.svg) do `/config/www/` w Home Assistant.
+1. Skopiuj [`ha/rekuperator.svg`](ha/rekuperator.svg) i [`ha/rekuperator-bypass.svg`](ha/rekuperator-bypass.svg) (nakładka pokazywana przy otwartym bypassie) do `/config/www/` w Home Assistant.
 2. Na dashboardzie wybierz Dodaj kartę → Ręcznie i wklej [`ha/karta-rekuperator.yaml`](ha/karta-rekuperator.yaml).
 3. Porównaj ID encji z listą w Ustawienia → Urządzenia → Rekuperator.
 
-Kliknięcie trybu lub GWC otwiera okno zmiany. Kliknięcie ikony w dolnym pasku przełącza tryb specjalny. Czerwone komunikaty (awaria, filtry, oszronienie) pojawiają się tylko wtedy, gdy alarm jest aktywny.
+Kliknięcie trybu lub GWC otwiera okno zmiany. Kliknięcie ikony w dolnym pasku przełącza tryb specjalny. Otwarty bypass jest podświetlony na niebiesko, zamknięty jest szary, a przepustnica jest ustawiona w poprzek kanału ([podgląd](docs/podglad-karty-bypass-zamkniety.png)). Czerwone komunikaty (awaria, filtry, oszronienie) pojawiają się tylko wtedy, gdy alarm jest aktywny.

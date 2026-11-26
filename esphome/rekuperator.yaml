@@ -241,7 +241,8 @@ binary_sensor:
     device_class: problem
   - platform: modbus_controller
     modbus_controller_id: onyx
-    name: "Bypass otwarty"
+    name: "Bypass"        # on = otwarty (powietrze omija wymiennik)
+    device_class: opening # HA pokaże "Otwarte"/"Zamknięte"
     register_type: holding
     address: 17           # 0 = przepustnica ON -> sprawdź logikę na żywo
     filters:

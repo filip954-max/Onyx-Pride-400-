@@ -5,6 +5,21 @@
 type: picture-elements
 image: /local/rekuperator.svg
 elements:
+  # bypass otwarty: nakładka z podświetlonym kanałem bypassu
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.rekuperator_bypass
+        state: "on"
+    elements:
+      - type: image
+        image: /local/rekuperator-bypass.svg
+        tap_action:
+          action: none
+        style:
+          left: 50%
+          top: 50%
+          width: 100%
+          pointer-events: none
   - type: state-label
     entity: sensor.rekuperator_temperatura_czerpni_zewn
     style:
@@ -154,13 +169,14 @@ elements:
       left: 50.0%
       top: 89.2%
       --mdc-icon-size: "34px"
-  - type: state-icon
-    entity: binary_sensor.rekuperator_bypass_otwarty
-    icon: mdi:call-split
+  - type: state-label
+    entity: binary_sensor.rekuperator_bypass
     style:
-      left: 50.0%
-      top: 23.2%
-      --mdc-icon-size: "24px"
+      left: 54.5%
+      top: 29.5%
+      color: "#1F2937"
+      font-size: "13px"
+      font-weight: "700"
   - type: conditional
     conditions:
       - entity: binary_sensor.rekuperator_awaria
